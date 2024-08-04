@@ -1,34 +1,181 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- displays site properly based on user's device -->
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- displays site properly based on user's device -->
 
-  <link rel="icon" type="image/png" sizes="32x32" href="./assets/images/favicon-32x32.png">
-  
-  <title>Frontend Mentor | Blog preview card</title>
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="./assets/images/favicon-32x32.png"
+    />
+    <link href="./reset.css" rel="stylesheet" type="text/css" />
 
-  <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
-  <style>
-    .attribution { font-size: 11px; text-align: center; }
-    .attribution a { color: hsl(228, 45%, 44%); }
-  </style>
-</head>
-<body>
+    <title>Frontend Mentor | Blog preview card</title>
 
-  Learning
+    <style>
+      @font-face {
+        font-family: "Figtree";
+        src: url("./assets/fonts/Figtree-VariableFont_wght.ttf")
+          format("truetype");
+      }
 
-  Published 21 Dec 2023
+      @font-face {
+        font-family: "Figtree Italic";
+        src: url("./assets/fonts/Figtree-Italic-VariableFont_wght")
+          format("truetype");
+      }
 
-  HTML & CSS foundations
+      :root {
+        /* color scheme*/
+        --yellow: hsl(47, 88%, 63%);
+        --gray-500: hsl(0, 0%, 42%);
+        --gray-950: hsl(0, 0%, 7%);
+        --white: hsl(0, 0%, 100%);
+        --black: hsl(0, 0%, 0%);
 
-  These languages are the backbone of every website, defining structure, content, and presentation.
+        /* typography */
+        --figtree-extrabold: 900 1.5rem/1.5 "Figtree", sans-serif;
+        --figtree-medium-2: 600 1rem/1.5 "Figtree", sans-serif;
+        --figtree-medium-3: 700 0.875rem/1.5 "Figtree", sans-serif;
+        --figtree-extrabold-small: 900 0.875rem/1.5 "Figtree", sans-serif;
 
-  Greg Hooper
-  
-  <div class="attribution">
-    Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>. 
-    Coded by <a href="#">Your Name Here</a>.
-  </div>
-</body>
+        /* spacing */
+        --spacing-300: 1.5rem;
+        --spacing-200: 1rem;
+        --spacing-150: 0.75rem;
+        --spacing-100: 0.5rem;
+        --spacing-50: 0.25rem;
+      }
+
+      body {
+        position: relative;
+      }
+
+      main {
+        background-color: var(--yellow);
+        display: grid;
+        height: 100vh;
+        padding-inline: var(--spacing-300);
+        place-items: center;
+        width: 100vw;
+      }
+
+      article.card {
+        background-color: var(--white);
+        border-radius: 0.625rem;
+        display: grid;
+        gap: var(--spacing-300);
+        grid-template-areas:
+          "image"
+          "content"
+          "author";
+        padding: var(--spacing-300);
+        width: 100%;
+        max-width: 384px;
+        border: 1px solid var(--gray-950);
+        box-shadow: 8px 8px 0px var(--black);
+      }
+
+      article.card img.card__header {
+        border-radius: 0.625rem;
+        grid-area: image;
+        width: 100%;
+      }
+
+      article.card div.content {
+        display: flex;
+        flex-direction: column;
+        gap: var(--spacing-150);
+        grid-area: content;
+      }
+      article.card div.content span.content__tag {
+        background-color: var(--yellow);
+        border-radius: 0.25rem;
+        color: var(--gray-950);
+        display: block;
+        font: var(--figtree-extrabold-small);
+        padding: var(--spacing-50) var(--spacing-100);
+        width: fit-content;
+      }
+      article.card div.content p.content__date {
+        font: var(--figtree-medium-3);
+        color: var(--gray-950);
+      }
+
+      article.card div.content h1.content__title {
+        font: var(--figtree-extrabold);
+        color: var(--gray-950);
+        letter-spacing: 0px;
+      }
+      article.card div.content p.content__content {
+        font: var(--figtree-medium-2);
+        color: var(--gray-500);
+        letter-spacing: 0px;
+      }
+
+      article.card div.author {
+        align-items: center;
+        display: flex;
+        gap: var(--spacing-150);
+        grid-area: author;
+      }
+      article.card div.author img {
+        height: 2rem;
+        width: 2rem;
+      }
+      article.card div.author h2 {
+        font: var(--figtree-extrabold-small);
+        color: var(--gray-950);
+      }
+
+      .attribution {
+        position: fixed;
+        bottom: var(--spacing-100);
+        background-color: var(--yellow);
+        font-size: 12px;
+        text-align: center;
+        width: 100%;
+      }
+      .attribution a {
+        color: hsl(228, 45%, 44%);
+      }
+    </style>
+  </head>
+  <body>
+    <main>
+      <article class="card">
+        <img
+          src="./assets/images/illustration-article.svg"
+          alt="Blog's header figure"
+          class="card__header"
+        />
+        <div class="content">
+          <span class="content__tag">Learning</span>
+          <p class="content__date">Published 21 Dec 2023</p>
+          <h1 class="content__title">HTML & CSS foundations</h1>
+          <p class="content__content">
+            These languages are the backbone of every website, defining
+            structure, content, and presentation.
+          </p>
+        </div>
+        <div class="author">
+          <img
+            src="./assets/images/image-avatar.webp"
+            alt="Greg Hooper's profile avatar"
+          />
+          <h2>Greg Hooper</h2>
+        </div>
+      </article>
+    </main>
+
+    <div class="attribution">
+      Challenge by
+      <a href="https://www.frontendmentor.io?ref=challenge" target="_blank"
+        >Frontend Mentor</a
+      >. Coded by <a href="#">Lener Moraga</a>.
+    </div>
+  </body>
 </html>

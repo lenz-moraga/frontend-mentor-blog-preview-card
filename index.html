@@ -107,8 +107,14 @@
 
       article.card div.content h1.content__title {
         font: var(--figtree-extrabold);
-        color: var(--gray-950);
         letter-spacing: 0px;
+      }
+      article.card div.content h1.content__title a {
+        color: var(--gray-950);
+        text-decoration: none;
+      }
+      article.card div.content h1.content__title a:hover {
+        color: var(--yellow);
       }
       article.card div.content p.content__content {
         font: var(--figtree-medium-2);
@@ -155,7 +161,7 @@
         <div class="content">
           <span class="content__tag">Learning</span>
           <p class="content__date">Published 21 Dec 2023</p>
-          <h1 class="content__title">HTML & CSS foundations</h1>
+          <h1 class="content__title"><a href="#">HTML & CSS foundations</a></h1>
           <p class="content__content">
             These languages are the backbone of every website, defining
             structure, content, and presentation.
